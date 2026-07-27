@@ -1,7 +1,0 @@
-[info]
-name = "Digital Heritage GY"
-version = "0.1.0"
-author = "Digital Heritage GY Project"
-description = "An Omeka S theme supporting community heritage, digital humanities, computational ethnomusicology, and heritage learning."
-omeka_version_constraint = "^4.2.0"
-fix(theme): move theme metadata to config directory
