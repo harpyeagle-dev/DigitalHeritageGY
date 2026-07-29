@@ -1,10 +1,3 @@
-<?php
-<!-- filepath: /Users/admin/Documents/DigitalHeritageGY/view/layout/layout.phtml -->
-<!-- ...existing code... -->
-<main id="main-content">
-    <?= $this->content; ?>
-</main>
-<!-- ...existing code... -->
 /* MV Barima landing-page hero */
 .barima-hero {
     position: relative;
