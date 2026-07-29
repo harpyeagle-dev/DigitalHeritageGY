@@ -58,6 +58,8 @@ $this->htmlElement('body')->appendAttribute(
 $this->trigger('view.layout');
 
 $userBar = $this->userBar();
+$requestUri = $_SERVER['REQUEST_URI'] ?? '';
+$showHomepageHero = strpos($requestUri, '/page/home') !== false;
 ?>
 
 <?php echo $this->doctype(); ?>
@@ -134,6 +136,22 @@ $userBar = $this->userBar();
         </div>
     <?php endif; ?>
 </header>
+
+<?php if ($showHomepageHero): ?>
+<section class="barima-hero">
+    <img
+        class="barima-hero-image"
+        src="<?= $this->assetUrl('img/mv-barima.png', 'DigitalHeritageGY'); ?>"
+        alt="MV Barima"
+    >
+
+    <div class="barima-hero-text">
+        <p class="barima-intro">In Memory of</p>
+        <h1>MV Barima</h1>
+        <p>Remembering the lives, journeys and stories connected to the vessel</p>
+    </div>
+</section>
+<?php endif; ?>
 
 <main id="content" class="site-content" role="main">
     <div class="container">
