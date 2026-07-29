@@ -59,7 +59,10 @@ $this->trigger('view.layout');
 
 $userBar = $this->userBar();
 $requestUri = $_SERVER['REQUEST_URI'] ?? '';
-$showHomepageHero = strpos($requestUri, '/page/home') !== false;
+$showHomepageHero =
+    $requestUri === '/'
+    || preg_match('#^/s/[^/]+/?$#', $requestUri)
+    || strpos($requestUri, '/page/home') !== false;
 ?>
 
 <?php echo $this->doctype(); ?>
