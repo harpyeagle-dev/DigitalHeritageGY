@@ -1,0 +1,1 @@
+const hero=document.getElementById('hero');const button=document.getElementById('toggle');button.addEventListener('click',()=>{const paused=hero.classList.toggle('paused');button.textContent=paused?'Resume text':'Pause text';button.setAttribute('aria-pressed',String(paused));});
