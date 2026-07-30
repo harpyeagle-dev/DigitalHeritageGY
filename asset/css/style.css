@@ -140,3 +140,450 @@
         font-size: 1rem;
     }
 }
+
+/* =========================================================
+   DIGITAL HERITAGE GUYANA — HOMEPAGE
+   ========================================================= */
+
+:root {
+    --dhg-ink: #17211c;
+    --dhg-forest: #234c3a;
+    --dhg-deep-green: #16362a;
+    --dhg-moss: #75876b;
+    --dhg-sand: #e8dfcf;
+    --dhg-cream: #f7f3ea;
+    --dhg-gold: #d2a94d;
+    --dhg-white: #ffffff;
+    --dhg-border: rgba(23, 33, 28, 0.16);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.dhg-home {
+    margin: 0;
+    background: var(--dhg-cream);
+    color: var(--dhg-ink);
+}
+
+.dhg-home #content {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dhg-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--dhg-white);
+    text-align: center;
+    background:
+        url("../img/mv-barima-memorial-background.jpg")
+        center center / cover no-repeat;
+}
+
+.dhg-hero::before {
+    content: "";
+    position: absolute;
+    inset: -4%;
+    background: inherit;
+    animation: dhgHeroZoom 18s ease-in-out infinite alternate;
+}
+
+.dhg-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7, 18, 14, 0.42) 0%,
+            rgba(7, 18, 14, 0.66) 68%,
+            rgba(7, 18, 14, 0.82) 100%
+        );
+}
+
+.dhg-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(900px, calc(100% - 40px));
+    padding: 120px 0 100px;
+}
+
+.dhg-eyebrow,
+.dhg-section-label {
+    margin: 0 0 18px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.dhg-eyebrow {
+    opacity: 0;
+    animation: dhgReveal 0.9s ease forwards 0.4s;
+}
+
+.dhg-hero h1 {
+    margin: 0;
+    font-size: clamp(4rem, 11vw, 9rem);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+    opacity: 0;
+    animation: dhgReveal 1.2s ease forwards 0.9s;
+}
+
+.dhg-memorial-title {
+    margin: 28px 0 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.15rem, 2.4vw, 1.8rem);
+    opacity: 0;
+    animation: dhgReveal 1s ease forwards 1.6s;
+}
+
+.dhg-memorial-date {
+    margin: 0;
+    color: var(--dhg-sand);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: dhgReveal 1s ease forwards 2.1s;
+}
+
+.dhg-memorial-lines {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 26px;
+    margin: 42px 0;
+    font-size: clamp(0.92rem, 1.6vw, 1.08rem);
+}
+
+.dhg-memorial-lines span {
+    opacity: 0;
+}
+
+.dhg-memorial-lines span:nth-child(1) {
+    animation: dhgReveal 0.8s ease forwards 2.7s;
+}
+
+.dhg-memorial-lines span:nth-child(2) {
+    animation: dhgReveal 0.8s ease forwards 3.2s;
+}
+
+.dhg-memorial-lines span:nth-child(3) {
+    animation: dhgReveal 0.8s ease forwards 3.7s;
+}
+
+.dhg-primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 28px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: var(--dhg-white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+    animation: dhgReveal 0.9s ease forwards 4.3s;
+}
+
+.dhg-primary-button:hover,
+.dhg-primary-button:focus {
+    background: var(--dhg-white);
+    color: var(--dhg-deep-green);
+    transform: translateY(-2px);
+}
+
+.dhg-scroll {
+    position: absolute;
+    z-index: 3;
+    bottom: 28px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--dhg-white);
+    text-decoration: none;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: dhgReveal 0.9s ease forwards 5s;
+}
+
+.dhg-scroll-line {
+    width: 1px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.7);
+    animation: dhgScrollPulse 1.8s ease-in-out infinite;
+}
+
+.dhg-section {
+    padding: 100px 24px;
+}
+
+.dhg-section-inner {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+}
+
+.dhg-narrow {
+    width: min(850px, 100%);
+    text-align: center;
+}
+
+.dhg-section-label {
+    color: var(--dhg-forest);
+}
+
+.dhg-section h2 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.2rem, 5vw, 4.4rem);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.dhg-introduction p:last-child {
+    max-width: 760px;
+    margin: 28px auto 0;
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.dhg-pathways {
+    background: var(--dhg-white);
+}
+
+.dhg-section-heading {
+    max-width: 740px;
+    margin-bottom: 54px;
+}
+
+.dhg-section-heading > p:last-child {
+    margin-top: 20px;
+    line-height: 1.75;
+}
+
+.dhg-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--dhg-border);
+    border-left: 1px solid var(--dhg-border);
+}
+
+.dhg-feature-card {
+    min-height: 300px;
+    padding: 34px;
+    border-right: 1px solid var(--dhg-border);
+    border-bottom: 1px solid var(--dhg-border);
+}
+
+.dhg-card-number {
+    margin-bottom: 48px;
+    color: var(--dhg-moss);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.dhg-feature-card h3 {
+    margin: 0 0 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.55rem;
+    font-weight: 400;
+}
+
+.dhg-feature-card p {
+    min-height: 88px;
+    line-height: 1.65;
+}
+
+.dhg-feature-card a,
+.dhg-text-link {
+    color: var(--dhg-forest);
+    font-weight: 700;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+}
+
+.dhg-communities {
+    color: var(--dhg-white);
+    background: var(--dhg-deep-green);
+}
+
+.dhg-communities .dhg-section-label {
+    color: var(--dhg-sand);
+}
+
+.dhg-community-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.dhg-community-card {
+    min-height: 330px;
+    display: flex;
+    align-items: flex-end;
+    padding: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    color: var(--dhg-white);
+    text-decoration: none;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.03),
+            rgba(0, 0, 0, 0.24)
+        );
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.dhg-community-card:hover,
+.dhg-community-card:focus {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dhg-community-card span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.7rem;
+}
+
+.dhg-learning-pipeline {
+    background: var(--dhg-sand);
+}
+
+.dhg-two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.dhg-two-column p {
+    margin-top: 0;
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+@keyframes dhgReveal {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes dhgHeroZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes dhgScrollPulse {
+    0%,
+    100% {
+        transform: scaleY(0.55);
+        transform-origin: top;
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 900px) {
+    .dhg-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dhg-community-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dhg-two-column {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dhg-hero-content {
+        padding-top: 100px;
+    }
+
+    .dhg-memorial-lines {
+        flex-direction: column;
+    }
+
+    .dhg-section {
+        padding: 72px 20px;
+    }
+
+    .dhg-card-grid,
+    .dhg-community-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dhg-feature-card {
+        min-height: auto;
+    }
+
+    .dhg-community-card {
+        min-height: 220px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .dhg-hero::before,
+    .dhg-eyebrow,
+    .dhg-hero h1,
+    .dhg-memorial-title,
+    .dhg-memorial-date,
+    .dhg-memorial-lines span,
+    .dhg-primary-button,
+    .dhg-scroll,
+    .dhg-scroll-line {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
