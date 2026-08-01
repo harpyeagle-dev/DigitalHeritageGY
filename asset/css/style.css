@@ -214,6 +214,24 @@ body.dhg-home {
         );
 }
 
+/* Live-page compatibility: some Omeka HTML blocks render .dhg-hero-overlay
+   directly without a surrounding .dhg-hero wrapper. */
+.block.block-html.grid-position-auto.grid-span-12 > .dhg-hero-overlay {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block.block-html.grid-position-auto.grid-span-12 > .dhg-hero-overlay > .dhg-hero-content {
+    position: relative;
+    width: min(1200px, 100%);
+    height: 100%;
+    max-width: 1180px;
+    color: var(--dhg-white);
+}
+
 .dhg-hero > .dhg-hero-overlay > .dhg-hero-content,
 .barima-hero > .dhg-hero-overlay > .dhg-hero-content {
     position: relative;
@@ -225,6 +243,21 @@ body.dhg-home {
 }
 
 .dhg-hero-content .dhg-presented {
+    position: absolute;
+    top: 9%;
+    width: 100%;
+    margin: 0;
+    font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+    font-weight: 700;
+    color: #f2c06f;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.barima-hero > .dhg-hero-content .dhg-eyebrow {
     position: absolute;
     top: 9%;
     width: 100%;
@@ -296,6 +329,21 @@ body.dhg-home {
     animation: fadeInUp 2s 2.3s forwards;
 }
 
+.barima-hero > .dhg-hero-content .dhg-date {
+    position: absolute;
+    top: 51%;
+    width: 100%;
+    margin: 0;
+    color: #eac071;
+    font-size: clamp(1rem, 1.7vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    animation: fadeInUp 2s 2.3s forwards;
+}
+
 .dhg-hero-content .dhg-memorial-date::before {
     content: "✧";
     display: block;
@@ -324,6 +372,26 @@ body.dhg-home {
     animation: fadeIn 2s 3.3s forwards;
 }
 
+.barima-hero > .dhg-hero-content .dhg-tribute {
+    position: absolute;
+    bottom: 96px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: clamp(16px, 3vw, 44px);
+    padding: 16px 24px;
+    border-top: 1px solid rgba(242, 179, 87, 0.35);
+    border-bottom: 1px solid rgba(242, 179, 87, 0.28);
+    background: linear-gradient(
+        180deg,
+        rgba(8, 12, 14, 0.18),
+        rgba(8, 12, 14, 0.36)
+    );
+    backdrop-filter: blur(1.2px);
+    opacity: 0;
+    animation: fadeIn 2s 3.3s forwards;
+}
+
 .dhg-hero-content .dhg-memorial-bottom p {
     position: relative;
     margin: 8px 0;
@@ -333,6 +401,57 @@ body.dhg-home {
     line-height: 1.5;
     color: #f0cb88;
     text-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
+}
+
+.barima-hero > .dhg-hero-content .dhg-tribute p {
+    position: relative;
+    margin: 8px 0;
+    width: min(300px, 30vw);
+    font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    color: #f0cb88;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
+}
+
+.barima-hero > .dhg-hero-content .dhg-tribute p:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 1px;
+    height: 34px;
+    transform: translateY(-50%);
+    background: rgba(242, 179, 87, 0.45);
+}
+
+.barima-hero > .dhg-hero-content .dhg-button {
+    position: absolute;
+    left: 50%;
+    bottom: 176px;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    color: var(--dhg-white);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(20, 20, 20, 0.28);
+    opacity: 0;
+    transition: background 0.25s ease, transform 0.25s ease;
+    animation: fadeIn 0.9s ease forwards 4.3s;
+}
+
+.barima-hero > .dhg-hero-content .dhg-button:hover,
+.barima-hero > .dhg-hero-content .dhg-button:focus {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateX(-50%) translateY(-2px);
 }
 
 .dhg-hero-content .dhg-memorial-bottom p:not(:last-child)::after {
@@ -637,6 +756,31 @@ body.dhg-home {
         font-size: 0.88rem;
     }
 
+    .barima-hero > .dhg-hero-content .dhg-eyebrow {
+        top: 10%;
+        letter-spacing: 0.18em;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-date {
+        top: 54%;
+        font-size: 1.05rem;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-tribute {
+        bottom: 82px;
+        gap: 16px;
+        padding: 12px 14px;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-tribute p {
+        width: min(240px, 30vw);
+        font-size: 0.88rem;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-button {
+        bottom: 166px;
+    }
+
     .dhg-card-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -707,6 +851,45 @@ body.dhg-home {
     .dhg-hero-content .dhg-scroll {
         bottom: 18px;
         font-size: 0.76rem;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-eyebrow {
+        top: 9%;
+        font-size: 0.76rem;
+        letter-spacing: 0.14em;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-date {
+        top: 48%;
+        font-size: 0.9rem;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-tribute {
+        bottom: 74px;
+        padding: 10px 12px;
+        border-top: 1px solid rgba(242, 179, 87, 0.26);
+        border-bottom: 1px solid rgba(242, 179, 87, 0.2);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-tribute p {
+        margin: 4px 0;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        width: 100%;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-tribute p:not(:last-child)::after {
+        display: none;
+    }
+
+    .barima-hero > .dhg-hero-content .dhg-button {
+        bottom: 160px;
+        min-height: 44px;
+        padding: 0 18px;
+        font-size: 0.72rem;
     }
 
 
