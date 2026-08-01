@@ -180,39 +180,42 @@ body.dhg-home {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    color: var(--dhg-white);
+    color: #fff;
     text-align: center;
-    background:
-        url("../img/mv-barima-memorial-background.jpg")
-        center center / cover no-repeat;
+
+    background-image: url("../img/mv-barima-memorial-background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .dhg-hero::before {
     content: "";
     position: absolute;
-    inset: -4%;
-    background: inherit;
+    inset: 0;
+    background-image: inherit;
+    background-position: inherit;
+    background-size: inherit;
+    background-repeat: inherit;
     animation: dhgHeroZoom 18s ease-in-out infinite alternate;
+    z-index: 0;
 }
 
 .dhg-hero-overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background:
-        linear-gradient(
-            180deg,
-            rgba(7, 18, 14, 0.42) 0%,
-            rgba(7, 18, 14, 0.66) 68%,
-            rgba(7, 18, 14, 0.82) 100%
-        );
+    background: linear-gradient(
+        180deg,
+        rgba(7, 18, 14, 0.42) 0%,
+        rgba(7, 18, 14, 0.66) 68%,
+        rgba(7, 18, 14, 0.82) 100%
+    );
 }
 
 .dhg-hero-content {
     position: relative;
     z-index: 2;
-    width: min(900px, calc(100% - 40px));
-    padding: 120px 0 100px;
 }
 
 .dhg-eyebrow,
