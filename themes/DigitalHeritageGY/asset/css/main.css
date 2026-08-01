@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Digital Heritage GY Theme
+   Main Stylesheet
+   ========================================================================== */
+
+@import url("variables.css");
+@import url("base.css");
+@import url("layout.css");
+@import url("header.css");
+@import url("navigation.css");
+@import url("footer.css");
+@import url("homepage.css");
+@import url("hero.css");
+@import url("style.css");
+@import url("responsive.css");
+
+/* TEMP DEPLOY MARKER: remove after confirming live theme sync */
+body {
+   border-top: 8px solid #ff2d55 !important;
+}
