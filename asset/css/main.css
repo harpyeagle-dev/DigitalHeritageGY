@@ -14,6 +14,11 @@
 @import url("style.css");
 @import url("responsive.css");
 
+/* Hide the legacy top hero block so only the new memorial hero remains. */
+section.barima-hero {
+   display: none !important;
+}
+
 /* TEMP DEPLOY MARKER: remove after confirming live theme sync */
 body {
    border-top: 8px solid #ff2d55 !important;
