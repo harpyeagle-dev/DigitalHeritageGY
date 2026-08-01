@@ -9,17 +9,6 @@
     background-color: #2f2a24;
 }
 
-/* Live page currently renders an older section-based hero and the newer
-   animated hero block. Hide the legacy section variant to avoid duplicates. */
-section.barima-hero {
-    display: none;
-}
-
-/* Hide legacy page-builder hero variant duplicated inside main content. */
-main .block.block-html.grid-position-auto.grid-span-12 > .barima-hero {
-    display: none;
-}
-
 .barima-hero-image {
     position: absolute;
     inset: 0;
