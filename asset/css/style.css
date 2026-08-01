@@ -172,7 +172,8 @@ body.dhg-home {
     padding: 0;
 }
 
-.dhg-hero {
+.dhg-hero,
+.barima-hero {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
@@ -190,7 +191,8 @@ body.dhg-home {
     animation: dhgHeroZoom 18s ease-in-out infinite alternate;
 }
 
-.dhg-hero-overlay {
+.dhg-hero > .dhg-hero-overlay,
+.barima-hero > .dhg-hero-overlay {
     position: absolute;
     inset: 0;
     display: flex;
@@ -212,7 +214,8 @@ body.dhg-home {
         );
 }
 
-.dhg-hero-content {
+.dhg-hero > .dhg-hero-overlay > .dhg-hero-content,
+.barima-hero > .dhg-hero-overlay > .dhg-hero-content {
     position: relative;
     z-index: 2;
     width: min(1200px, 100%);
@@ -221,7 +224,7 @@ body.dhg-home {
     color: var(--dhg-white);
 }
 
-.dhg-presented {
+.dhg-hero-content .dhg-presented {
     position: absolute;
     top: 9%;
     width: 100%;
@@ -236,7 +239,7 @@ body.dhg-home {
     animation: fadeIn 2s forwards;
 }
 
-.dhg-title {
+.dhg-hero-content .dhg-title {
     position: absolute;
     top: 27%;
     width: 100%;
@@ -252,7 +255,7 @@ body.dhg-home {
     animation: fadeInUp 2s 0.8s forwards;
 }
 
-.dhg-subtitle {
+.dhg-hero-content .dhg-subtitle {
     position: absolute;
     top: 43%;
     width: 100%;
@@ -267,8 +270,8 @@ body.dhg-home {
     animation: fadeInUp 2s 1.5s forwards;
 }
 
-.dhg-subtitle::before,
-.dhg-subtitle::after {
+.dhg-hero-content .dhg-subtitle::before,
+.dhg-hero-content .dhg-subtitle::after {
     content: "";
     display: inline-block;
     width: clamp(28px, 4vw, 46px);
@@ -278,7 +281,7 @@ body.dhg-home {
     background: rgba(242, 179, 87, 0.55);
 }
 
-.dhg-memorial-date {
+.dhg-hero-content .dhg-memorial-date {
     position: absolute;
     top: 51%;
     width: 100%;
@@ -293,7 +296,7 @@ body.dhg-home {
     animation: fadeInUp 2s 2.3s forwards;
 }
 
-.dhg-memorial-date::before {
+.dhg-hero-content .dhg-memorial-date::before {
     content: "✧";
     display: block;
     margin-bottom: 8px;
@@ -301,7 +304,7 @@ body.dhg-home {
     color: rgba(242, 179, 87, 0.82);
 }
 
-.dhg-memorial-bottom {
+.dhg-hero-content .dhg-memorial-bottom {
     position: absolute;
     bottom: 96px;
     width: 100%;
@@ -321,7 +324,7 @@ body.dhg-home {
     animation: fadeIn 2s 3.3s forwards;
 }
 
-.dhg-memorial-bottom p {
+.dhg-hero-content .dhg-memorial-bottom p {
     position: relative;
     margin: 8px 0;
     width: min(300px, 30vw);
@@ -332,7 +335,7 @@ body.dhg-home {
     text-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
 }
 
-.dhg-memorial-bottom p:not(:last-child)::after {
+.dhg-hero-content .dhg-memorial-bottom p:not(:last-child)::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -343,7 +346,7 @@ body.dhg-home {
     background: rgba(242, 179, 87, 0.45);
 }
 
-.dhg-scroll {
+.dhg-hero-content .dhg-scroll {
     position: absolute;
     bottom: 24px;
     width: 100%;
@@ -597,39 +600,39 @@ body.dhg-home {
 }
 
 @media (max-width: 900px) {
-    .dhg-presented {
+    .dhg-hero-content .dhg-presented {
         top: 10%;
         letter-spacing: 0.18em;
     }
 
-    .dhg-title {
+    .dhg-hero-content .dhg-title {
         top: 30%;
         font-size: clamp(2.9rem, 12vw, 5.7rem);
     }
 
-    .dhg-subtitle {
+    .dhg-hero-content .dhg-subtitle {
         top: 45%;
         font-size: clamp(1rem, 2.8vw, 1.6rem);
     }
 
-    .dhg-subtitle::before,
-    .dhg-subtitle::after {
+    .dhg-hero-content .dhg-subtitle::before,
+    .dhg-hero-content .dhg-subtitle::after {
         width: 24px;
         margin: 0 8px;
     }
 
-    .dhg-memorial-date {
+    .dhg-hero-content .dhg-memorial-date {
         top: 54%;
         font-size: 1.05rem;
     }
 
-    .dhg-memorial-bottom {
+    .dhg-hero-content .dhg-memorial-bottom {
         bottom: 82px;
         gap: 16px;
         padding: 12px 14px;
     }
 
-    .dhg-memorial-bottom p {
+    .dhg-hero-content .dhg-memorial-bottom p {
         width: min(240px, 30vw);
         font-size: 0.88rem;
     }
@@ -649,37 +652,38 @@ body.dhg-home {
 }
 
 @media (max-width: 600px) {
-    .dhg-hero-content {
+    .dhg-hero > .dhg-hero-overlay > .dhg-hero-content,
+    .barima-hero > .dhg-hero-overlay > .dhg-hero-content {
         padding-top: 60px;
     }
 
-    .dhg-presented {
+    .dhg-hero-content .dhg-presented {
         top: 9%;
         font-size: 0.76rem;
         letter-spacing: 0.14em;
     }
 
-    .dhg-title {
+    .dhg-hero-content .dhg-title {
         top: 26%;
         font-size: clamp(2.3rem, 14vw, 3.9rem);
     }
 
-    .dhg-subtitle {
+    .dhg-hero-content .dhg-subtitle {
         top: 41%;
         font-size: 0.98rem;
     }
 
-    .dhg-subtitle::before,
-    .dhg-subtitle::after {
+    .dhg-hero-content .dhg-subtitle::before,
+    .dhg-hero-content .dhg-subtitle::after {
         display: none;
     }
 
-    .dhg-memorial-date {
+    .dhg-hero-content .dhg-memorial-date {
         top: 48%;
         font-size: 0.9rem;
     }
 
-    .dhg-memorial-bottom {
+    .dhg-hero-content .dhg-memorial-bottom {
         bottom: 74px;
         padding: 10px 12px;
         border-top: 1px solid rgba(242, 179, 87, 0.26);
@@ -689,37 +693,37 @@ body.dhg-home {
         gap: 0;
     }
 
-    .dhg-memorial-bottom p {
+    .dhg-hero-content .dhg-memorial-bottom p {
         margin: 4px 0;
         font-size: 0.78rem;
         letter-spacing: 0.08em;
         width: 100%;
     }
 
-    .dhg-memorial-bottom p:not(:last-child)::after {
+    .dhg-hero-content .dhg-memorial-bottom p:not(:last-child)::after {
         display: none;
     }
 
-    .dhg-scroll {
+    .dhg-hero-content .dhg-scroll {
         bottom: 18px;
         font-size: 0.76rem;
     }
 
 
 @media (min-width: 1400px) {
-    .dhg-title {
+    .dhg-hero-content .dhg-title {
         top: 25%;
     }
 
-    .dhg-subtitle {
+    .dhg-hero-content .dhg-subtitle {
         top: 40%;
     }
 
-    .dhg-memorial-date {
+    .dhg-hero-content .dhg-memorial-date {
         top: 48%;
     }
 
-    .dhg-memorial-bottom {
+    .dhg-hero-content .dhg-memorial-bottom {
         bottom: 112px;
     }
 }
@@ -747,12 +751,12 @@ body.dhg-home {
     }
 
     .dhg-hero-image,
-    .dhg-presented,
-    .dhg-title,
-    .dhg-subtitle,
-    .dhg-memorial-date,
-    .dhg-memorial-bottom,
-    .dhg-scroll {
+    .dhg-hero-content .dhg-presented,
+    .dhg-hero-content .dhg-title,
+    .dhg-hero-content .dhg-subtitle,
+    .dhg-hero-content .dhg-memorial-date,
+    .dhg-hero-content .dhg-memorial-bottom,
+    .dhg-hero-content .dhg-scroll {
         animation: none;
         opacity: 1;
         transform: none;
